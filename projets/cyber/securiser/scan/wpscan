@@ -1,0 +1,81 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.27
+                               
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[34m[i][0m Updating the Database ...
+[34m[i][0m Update completed.
+
+[32m[+][0m URL: http://172.16.20.25/ [172.16.20.25]
+[32m[+][0m Started: Wed Dec  4 14:46:00 2024
+
+Interesting Finding(s):
+
+[32m[+][0m Headers
+ | Interesting Entry: Server: Apache
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[32m[+][0m robots.txt found: http://172.16.20.25/robots.txt
+ | Interesting Entries:
+ |  - /wp-admin/
+ |  - /wp-admin/admin-ajax.php
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m The external WP-Cron seems to be enabled: http://172.16.20.25/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[32m[+][0m WordPress version 6.7.1 identified (Latest, released on 2024-11-21).
+ | Found By: Query Parameter In Install Page (Aggressive Detection)
+ |  - http://172.16.20.25/wp-includes/css/dashicons.min.css?ver=6.7.1
+ |  - http://172.16.20.25/wp-includes/css/buttons.min.css?ver=6.7.1
+ |  - http://172.16.20.25/wp-admin/css/forms.min.css?ver=6.7.1
+ |  - http://172.16.20.25/wp-admin/css/l10n.min.css?ver=6.7.1
+ |  - http://172.16.20.25/wp-admin/css/install.min.css?ver=6.7.1
+
+[32m[+][0m WordPress theme in use: twentytwentytwo
+ | Location: http://172.16.20.25/wp-content/themes/twentytwentytwo/
+ | Latest Version: 1.9 (up to date)
+ | Last Updated: 2024-11-13T00:00:00.000Z
+ | Readme: http://172.16.20.25/wp-content/themes/twentytwentytwo/readme.txt
+ | Style URL: http://172.16.20.25/wp-content/themes/twentytwentytwo/style.css?ver=1.9
+ | Style Name: Twenty Twenty-Two
+ | Style URI: https://wordpress.org/themes/twentytwentytwo/
+ | Description: Built on a solidly designed foundation, Twenty Twenty-Two embraces the idea that everyone deserves a...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ | Confirmed By: Css Style In 404 Page (Passive Detection)
+ |
+ | Version: 1.9 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://172.16.20.25/wp-content/themes/twentytwentytwo/style.css?ver=1.9, Match: 'Version: 1.9'
+
+
+[34m[i][0m No plugins Found.
+
+[33m[!][0m No WPScan API Token given, as a result vulnerability data has not been output.
+[33m[!][0m You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[32m[+][0m Finished: Wed Dec  4 14:46:06 2024
+[32m[+][0m Requests Done: 56
+[32m[+][0m Cached Requests: 7
+[32m[+][0m Data Sent: 11.571 KB
+[32m[+][0m Data Received: 21.939 MB
+[32m[+][0m Memory used: 281.984 MB
+[32m[+][0m Elapsed time: 00:00:06

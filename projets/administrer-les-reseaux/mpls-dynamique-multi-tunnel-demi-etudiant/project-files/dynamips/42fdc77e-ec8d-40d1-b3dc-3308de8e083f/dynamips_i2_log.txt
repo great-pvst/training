@@ -1,0 +1,19 @@
+Nov 28 12:44:51.204 HYPERVISOR: Release 0.2.21-x86/Linux (tag 2019071212)
+Nov 28 12:44:51.205 HYPERVISOR: Started on IP = localhost, TCP port = 42053.
+Nov 28 12:44:51.213 HYPERVISOR: exec_cmd: hypervisor version 
+Nov 28 12:44:51.213 HYPERVISOR: exec_cmd: hypervisor working_dir /home/francois/Nextcloud/Cours/GNS3-ng/mpls-dynamique-multi-tunnel-full/project-files/dynamips 
+Nov 28 12:44:51.213 GENERAL: working_dir=/home/francois/Nextcloud/Cours/GNS3-ng/mpls-dynamique-multi-tunnel-full/project-files/dynamips
+Nov 28 12:44:51.213 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Nov 28 12:44:51.942 HYPERVISOR: exec_cmd: nio create_udp udp-fb7953fb-afb8-48aa-af74-68efd409e764 10001 127.0.0.1 10000 
+Nov 28 12:44:51.943 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-fb7953fb-afb8-48aa-af74-68efd409e764 
+Nov 28 12:44:51.945 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-fb7953fb-afb8-48aa-af74-68efd409e764 1 
+Nov 28 12:44:51.994 HYPERVISOR: exec_cmd: nio create_udp udp-33885e4d-98a0-4c04-b2fd-6f4708d0f5b2 10003 127.0.0.1 10002 
+Nov 28 12:44:51.994 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-33885e4d-98a0-4c04-b2fd-6f4708d0f5b2 
+Nov 28 12:44:52.005 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-33885e4d-98a0-4c04-b2fd-6f4708d0f5b2 1 
+Nov 28 12:44:52.050 HYPERVISOR: exec_cmd: nio create_udp udp-50077b63-5f9a-4e20-8447-a6e4622f5398 10004 127.0.0.1 10005 
+Nov 28 12:44:52.050 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-50077b63-5f9a-4e20-8447-a6e4622f5398 
+Nov 28 12:44:52.065 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-50077b63-5f9a-4e20-8447-a6e4622f5398 1 
+Nov 28 12:47:30.165 HYPERVISOR: exec_cmd: ethsw delete Switch1 
+Nov 28 12:47:30.222 HYPERVISOR: exec_cmd: hypervisor stop 
+Nov 28 12:47:30.367 HYPERVISOR: Stopped.
+Nov 28 12:47:30.367 GENERAL: reset done.

@@ -1,0 +1,58 @@
+Dec 02 09:38:57.146 HYPERVISOR: Release 0.2.21-x86/Linux (tag 2019071212)
+Dec 02 09:38:57.146 HYPERVISOR: Started on IP = localhost, TCP port = 39215.
+Dec 02 09:38:57.156 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 02 09:38:57.156 HYPERVISOR: exec_cmd: hypervisor working_dir /home/francois/Nextcloud/Cours/GNS3-ng/mpls-vpn/project-files/dynamips 
+Dec 02 09:38:57.156 GENERAL: working_dir=/home/francois/Nextcloud/Cours/GNS3-ng/mpls-vpn/project-files/dynamips
+Dec 02 09:38:57.157 HYPERVISOR: exec_cmd: hypervisor working_dir /home/francois/Nextcloud/Cours/GNS3-ng/mpls-vpn/project-files/dynamips/fdb510f1-e8de-4806-830a-814e631f4a7c 
+Dec 02 09:38:57.157 GENERAL: working_dir=/home/francois/Nextcloud/Cours/GNS3-ng/mpls-vpn/project-files/dynamips/fdb510f1-e8de-4806-830a-814e631f4a7c
+Dec 02 09:38:57.157 HYPERVISOR: exec_cmd: vm create R4 4 c2691 
+Dec 02 09:38:57.157 VM: VM R4 created.
+Dec 02 09:38:57.158 HYPERVISOR: exec_cmd: vm set_con_tcp_port R4 5004 
+Dec 02 09:38:57.158 HYPERVISOR: exec_cmd: c2691 get_mac_addr R4 
+Dec 02 09:38:57.158 HYPERVISOR: exec_cmd: vm set_disk0 R4 0 
+Dec 02 09:38:57.159 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:38:57.159 HYPERVISOR: exec_cmd: vm set_idle_pc R4 0x60aadf68 
+Dec 02 09:38:57.160 HYPERVISOR: exec_cmd: vm set_ios R4 /root/GNS3/images/IOS/c2691-adventerprisek9-mz.124-5a.image 
+Dec 02 09:38:57.160 HYPERVISOR: exec_cmd: c2691 set_mac_addr R4 c004.c175.0000 
+Dec 02 09:38:57.160 HYPERVISOR: exec_cmd: vm set_nvram R4 256 
+Dec 02 09:38:57.161 HYPERVISOR: exec_cmd: vm set_ram R4 192 
+Dec 02 09:38:57.161 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:38:57.161 HYPERVISOR: exec_cmd: vm slot_add_binding R4 0 16 WIC-2T 
+Dec 02 09:38:57.161 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:38:57.162 HYPERVISOR: exec_cmd: vm slot_add_binding R4 0 32 WIC-2T 
+Dec 02 09:38:57.162 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:38:57.162 HYPERVISOR: exec_cmd: vm slot_add_binding R4 0 48 WIC-2T 
+Dec 02 09:38:57.946 HYPERVISOR: exec_cmd: nio create_udp udp-ef19f83e-fe36-4da0-993d-bf4d77163550 10010 127.0.0.1 10011 
+Dec 02 09:38:58.161 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R4 0 17 udp-ef19f83e-fe36-4da0-993d-bf4d77163550 
+Dec 02 09:38:58.162 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:38:58.226 HYPERVISOR: exec_cmd: nio create_udp udp-08a4fbd0-e3ff-4f31-9131-8663820f0894 10014 127.0.0.1 10015 
+Dec 02 09:38:58.227 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R4 0 16 udp-08a4fbd0-e3ff-4f31-9131-8663820f0894 
+Dec 02 09:38:58.228 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:38:59.663 HYPERVISOR: exec_cmd: nio create_udp udp-cd0bb599-c08d-4ab3-a22c-31986c68e552 10046 127.0.0.1 10047 
+Dec 02 09:38:59.664 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R4 0 33 udp-cd0bb599-c08d-4ab3-a22c-31986c68e552 
+Dec 02 09:38:59.664 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:39:06.151 HYPERVISOR: exec_cmd: vm set_ghost_status R4 2 
+Dec 02 09:39:06.153 HYPERVISOR: exec_cmd: vm set_ghost_file R4 /home/francois/Nextcloud/Cours/GNS3-ng/mpls-vpn/project-files/dynamips/c2691-adventerprisek9-mz.124-5a.image-192.ghost 
+Dec 02 09:39:06.154 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 09:39:06.156 HYPERVISOR: exec_cmd: vm set_config R4 configs/i4_startup-config.cfg 
+Dec 02 09:39:06.157 HYPERVISOR: exec_cmd: vm start R4 
+Dec 02 09:52:36.456 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 09:52:36.460 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 10:41:59.091 HYPERVISOR: exec_cmd: vm set_ios R4 /root/GNS3/images/IOS/c2691-adventerprisek9-mz.124-5a.image 
+Dec 02 10:42:01.256 HYPERVISOR: exec_cmd: vm set_ios R4 /root/GNS3/images/IOS/c2691-adventerprisek9-mz.124-5a.image 
+Dec 02 10:42:03.083 HYPERVISOR: exec_cmd: vm set_ios R4 /root/GNS3/images/IOS/c2691-adventerprisek9-mz.124-5a.image 
+Dec 02 11:13:55.577 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 11:13:55.582 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 11:13:57.294 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 11:13:57.295 HYPERVISOR: exec_cmd: vm stop R4 
+Dec 02 11:13:57.401 VM: VM R4 shutdown.
+Dec 02 11:13:57.402 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 11:14:03.829 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 11:14:03.830 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 11:14:04.312 HYPERVISOR: exec_cmd: vm get_status R4 
+Dec 02 11:14:04.313 HYPERVISOR: exec_cmd: vm extract_config R4 
+Dec 02 11:14:04.314 HYPERVISOR: exec_cmd: vm delete R4 
+Dec 02 11:14:04.314 VM: VM R4 destroyed.
+Dec 02 11:14:04.315 HYPERVISOR: exec_cmd: hypervisor stop 
+Dec 02 11:14:04.378 HYPERVISOR: Stopped.
+Dec 02 11:14:04.378 GENERAL: reset done.

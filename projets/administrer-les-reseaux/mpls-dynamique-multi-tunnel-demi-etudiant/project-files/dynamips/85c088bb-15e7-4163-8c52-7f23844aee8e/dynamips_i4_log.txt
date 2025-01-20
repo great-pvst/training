@@ -1,0 +1,39 @@
+Nov 28 12:44:51.583 HYPERVISOR: Release 0.2.21-x86/Linux (tag 2019071212)
+Nov 28 12:44:51.583 HYPERVISOR: Started on IP = localhost, TCP port = 43449.
+Nov 28 12:44:51.592 HYPERVISOR: exec_cmd: hypervisor version 
+Nov 28 12:44:51.592 HYPERVISOR: exec_cmd: hypervisor working_dir /home/francois/Nextcloud/Cours/GNS3-ng/mpls-dynamique-multi-tunnel-full/project-files/dynamips 
+Nov 28 12:44:51.592 GENERAL: working_dir=/home/francois/Nextcloud/Cours/GNS3-ng/mpls-dynamique-multi-tunnel-full/project-files/dynamips
+Nov 28 12:44:51.592 HYPERVISOR: exec_cmd: hypervisor working_dir /home/francois/Nextcloud/Cours/GNS3-ng/mpls-dynamique-multi-tunnel-full/project-files/dynamips/7508ea95-26eb-483b-a152-30957c6eba3e 
+Nov 28 12:44:51.592 GENERAL: working_dir=/home/francois/Nextcloud/Cours/GNS3-ng/mpls-dynamique-multi-tunnel-full/project-files/dynamips/7508ea95-26eb-483b-a152-30957c6eba3e
+Nov 28 12:44:51.592 HYPERVISOR: exec_cmd: vm create R3 3 c2691 
+Nov 28 12:44:51.593 VM: VM R3 created.
+Nov 28 12:44:51.593 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5008 
+Nov 28 12:44:51.593 HYPERVISOR: exec_cmd: c2691 get_mac_addr R3 
+Nov 28 12:44:51.594 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+Nov 28 12:44:51.595 HYPERVISOR: exec_cmd: vm set_ios R3 /home/francois/GNS3/images/IOS/c2691-adventerprisek9-mz.124-5a.bin 
+Nov 28 12:44:51.595 HYPERVISOR: exec_cmd: c2691 set_mac_addr R3 c003.ef16.0000 
+Nov 28 12:44:51.595 HYPERVISOR: exec_cmd: vm set_nvram R3 256 
+Nov 28 12:44:51.596 HYPERVISOR: exec_cmd: vm set_ram R3 192 
+Nov 28 12:44:51.596 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:44:51.596 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 NM-16ESW 
+Nov 28 12:44:51.597 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:44:51.597 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 16 WIC-2T 
+Nov 28 12:44:51.598 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:44:51.598 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 32 WIC-2T 
+Nov 28 12:44:51.598 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:44:51.598 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 48 WIC-2T 
+Nov 28 12:44:52.617 HYPERVISOR: exec_cmd: nio create_udp udp-9154e1f2-25ab-480b-ba95-f75697ec71af 10018 127.0.0.1 10019 
+Nov 28 12:44:52.830 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 17 udp-9154e1f2-25ab-480b-ba95-f75697ec71af 
+Nov 28 12:44:52.831 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:44:52.876 HYPERVISOR: exec_cmd: nio create_udp udp-815126f5-903a-4c7a-a7d1-26ac0ffbaf8b 10022 127.0.0.1 10023 
+Nov 28 12:44:52.877 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 16 udp-815126f5-903a-4c7a-a7d1-26ac0ffbaf8b 
+Nov 28 12:44:52.877 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:47:30.127 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:47:30.128 HYPERVISOR: exec_cmd: vm extract_config R3 
+Nov 28 12:47:30.382 HYPERVISOR: exec_cmd: vm get_status R3 
+Nov 28 12:47:30.383 HYPERVISOR: exec_cmd: vm extract_config R3 
+Nov 28 12:47:30.383 HYPERVISOR: exec_cmd: vm delete R3 
+Nov 28 12:47:30.383 VM: VM R3 destroyed.
+Nov 28 12:47:30.384 HYPERVISOR: exec_cmd: hypervisor stop 
+Nov 28 12:47:30.744 HYPERVISOR: Stopped.
+Nov 28 12:47:30.744 GENERAL: reset done.

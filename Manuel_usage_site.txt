@@ -1,0 +1,23 @@
+Bienvenue sur notre site. Ce manuel simple vous permettra de trouver facilement et rapidement l'objet de votre recherche.
+En effet notre outil est une sorte d'annuaire des étudiants du département Réseaux & Télécoms.
+
+- Langue = français
+
+- Accès au site
+	Vous pouvez accéder au site depuis un navigateur web de votre choix.
+	Ce lien "https://rt-projet.pu-pm.univ-fcomte.fr/users/aockandj/sae23/site/code_final.php" vous permettra d'accéder à la page officielle de notre site.
+	Pour des raisons de sécurité, vous devrez utiliser les machines du département ou utlisez le vpn de l'université.
+	Il est aussi possible de vous connecter au site en passant par le serveur pas à pas.
+	Vous verrez la page unique du site si tout se passe bien.
+
+- Utilisation
+	Le site vous offre une interface simple et intuitive. La liste déroulante contient le nom des étudiants de R&T.
+	Pour voir les informations d'un étudiant, vous n'avez qu'à sélectionner son nom dans la liste puis appuyer sur le bouton pour "Afficher les informations".
+	Les informations des étudiants s'afficheront par la suite sur la même page.
+	
+- Remerciements à
+	Paul Solis Macedo pour le style de la page et son interface simple d'utilisation.
+	Ardy Ockandji et Richardy Tchitembo pour les écritures de scripts permettant la récupération et l'affichage des informations.
+	
+	
+Merci d'avoir utilisé notre outil.

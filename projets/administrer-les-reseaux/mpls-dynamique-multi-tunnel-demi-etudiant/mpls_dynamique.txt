@@ -1,0 +1,57 @@
+R4
+conf t
+ip cef
+int s0/0
+ip addr 172.2.221.2 255.255.255.252
+ip rsvp bandwidth 1000
+no sh
+int s0/1
+ip addr 172.2.222.1 255.255.255.252
+ip rsvp bandwidth 1000
+no sh
+
+router ospf 10
+network 172.2.221.0 0.0.0.3 area 1
+network 172.2.222.0 0.0.0.3 area 1
+
+mpls ip
+mpls traffic-eng tunnels
+
+conf t
+int loopback 0
+ip addr 10.0.2.5 255.255.255.255
+no sh
+exit
+router ospf 10
+network 10.0.0.0 0.0.0.255 area 1
+
+conf t
+int s0/0
+mpls traffic-eng tunnels
+
+conf t
+interface tunnel 23
+ip unnumbered loopback 0
+tunnel destination 10.0.2.1
+tunnel mode mpls traffic-eng
+tunnel mpls traffic-eng autoroute announce
+tunnel mpls traffic-eng priority 7 7
+tunnel mpls traffic-eng bandwidth 1200
+tunnel mpls traffic-eng path-option 1 dynamic
+exit
+ip explicit-path name ardy2Milieu enable
+next-address 172.2.221.2
+next-address 172.2.222.2
+exit
+router ospf 10
+mpls traffic-eng area 1
+mpls traffic-eng router-id loopback0
+
+conf t
+interface tunnel 20
+tunnel mpls traffic-eng path-option 2 explicit name ardyMilieu
+exit
+ip explicit-path name ardyMilieu enable
+next-address 172.2.222.1
+next-address 172.2.221.1
+exit
