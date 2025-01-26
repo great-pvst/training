@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#simulation du processus d auth, ouverture session.
+
+login=
+password=
+read -p "Login : " login
+read -s -p "Password : " password; echo -e "\n"
+#sans saisie user
+if [ -z "$1" ] && [ -z "$login" ]; then
+	echo "Usage : "$0" <arg> (-h pour l'aide)"
+	exit 1
+fi
+
+case "$1" in
+-h)	echo -e "Usage de la commande $0\n"
+	echo -e "-h	Affichage de l'aide"
+	echo -e "-u USER	Spécifier l'utilisateur USER"
+	echo -e "-p PASS	Spécifier le mot de passe PASS"
+	echo -e "\nEnjoy"
+	exit 1 ;;
+-u)	login="$2" ;;
+#-p)	password="$4" ;;
+esac
+
+case "$3" in
+-p)	password="$4"
+esac
+
+
+#if [ -z "$login" -a "$password" ]; then
+#	echo -e "Erreur, aucune valeur\n"
+#fi
+if [ "$login" != "cb" -a "$password" != "pass" ]; then
+	echo -e "Identification incorrecte\n"
+fi
+
+if [ "$login" = "cb" -a "$password" = "pass" ]; then
+	echo -e "Bienvenue $login"
+fi

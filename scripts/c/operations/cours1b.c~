@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void division_avec_reste(int dividende, int diviseur)
+{
+	int q = 0;
+	while (dividende - diviseur >= 0)
+	{
+		dividende = dividende - diviseur;
+		q++;
+	}
+	printf ("Q = %d et R = %d\n", q, dividende);
+}
+
+void multiplication_recusrsive(int *a, int *b)
+{
+	if (*b%2 == 0 && *b>0)
+	{
+		
+	}
+	
+}
+
+int main(){
+	//exercice 8 : division des entiers (sans /)
+	/*
+	printf("Simulation de l'opération de division\n \
+	Principe : \n\t\t- deux entiers positifs\n \
+	\t- le plus grand sera divié par le plus petit\n \
+	\t- l'opérateur / n'est pas utilisé\n\n");
+	
+	int a = 0, b = 0;
+	printf("Entier 1 : "); scanf("%d", &a); printf("Entier 2 : "); scanf("%d", &b);
+	//les valeurs sont saisies et donc fixes. Changer q et r.
+
+	if (a > b) division_avec_reste(a,b);
+	else division_avec_reste(b,a);
+	*/
+
+	//exercice 9 : multiplication suivant le principe recursif
+	int a = 36, b = 7;
+
+	if (b%2 != 0)
+	{
+		while (b > 0) {
+			printf("%i * %i = %d * %d + %d \n", a,b,a,b-1,a);
+			b--;
+		}
+	}
+	
+	if (b%2 == 0)
+	{
+		while (b > 0)
+		{
+			printf("%i * %i = %d * %d \n", a,b,2*a,b/2);
+			b = b/2;
+			a = a*2;
+		}
+		
+	}
+	
+
+return 0;
+}	
+/*									test brut : exercice 8
+	while (b - a >= 0)
+	{
+		q++;
+		b = b-a;
+	}
+	
+	//b = a*q + r;
+	//b - r = q*a;
+	q = b/a; r = b%a; 
+	printf("q = %d et r = %d\n", q,r);
+*/
