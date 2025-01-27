@@ -1,5 +1,7 @@
 Des exercices pour s'entraîner et garder le rythme d'un minimum de programmation...
 Ces entraînements se présentent souvent sous une approche mathématique ou d'automatisation des tâches répétites sur marchine (bien sûr pas pour tout le monde)
+Certains ne sont pas terminés et d'autres peuvent mal fonctionner.
 
 Exercises to train and keep up with a minimum of programming...
 These workouts often take a mathematical approach or automate repetitive tasks on a walk (of course not for everyone)
+Some are unfinished and others may malfunction.
