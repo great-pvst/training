@@ -1,33 +1,31 @@
-/*Ce sont des lignes dans le code débutant avec un dièse #. Le préprocesseur va parcourir tous
-les fichiers à la recherche de directives avant la compilation pour rélaiser certaines modifications.
+/*Ce sont des lignes dans le code débutant avec un dièse #. Le préprocesseur va parcourir tous les fichiers à la recherche de directives avant la compilation pour réaliser certaines modifications.
 
 #include = inclure un fichier dans un autre
-#define = associer une valeur à un mot. c'est la définition d'une constante de préprocesseur
-(ne prend pas de place en mémoire et s'applique à toutes les occurrences dans le code).
-on peut établir des calculs avec define
-on peut définier une constante de préprocesseur sans définir la valeur
-#define permet aussi de remplacer un mot par un code source : on dit qu'on crée une macro.
-une macro est un bout de code qui est directement remplacé dans le code source juste avant sa
-compilation. Il est possible de mettre plusieurs lignes de codes à la fois. il suffit de placer
-\ (antislash) avant chaque nouvelle ligne.
+#define = associer une valeur à un mot. c'est la définition d'une constante de préprocesseur (ne prend pas de place en mémoire et s'applique à toutes les occurrences dans le code).
+	on peut établir des calculs avec define
+	on peut définir une constante de préprocesseur sans définir la valeur
+	#define permet aussi de remplacer un mot par un code source : on dit qu'on crée une macro.
+	une macro est un bout de code qui est directement remplacé dans le code source juste avant sa compilation. Il est possible de mettre plusieurs lignes de codes à la fois. il suffit de placer "\" (antislash) avant chaque nouvelle ligne.
 
-il existe des constantes prédéffinies par le processeur
+il existe des constantes prédéfinies par le processeur
 _LINE_ : donne le numéro de la ligne
 _FILE_ : donne le nom du fichier actuel
 _DATE_ : donne la date de la compilation
 _TIME_ : donne l'heure de la compilation
 ces constantes peuvent être utiles pour gérer des erreurs
 
-on peut réaliser des conditions en langage préprocesseur. l'intérêt est de faire des compilations
-conditionnelles.
-#if condition : permet d'insérer une condition
+on peut réaliser des conditions en langage préprocesseur. l'intérêt est de faire des compilations conditionnelles.
+
+#if condition 
     ** code source à compiler si la condition est vraie **
-#elif : signifie else if
+#elif condition2 
     ** sinon si la condition 2 est vraie **
-#endif : stop de la condition
+
+#endif  
+
 à noter, il n'y a pas d'accolades en préprocesseur.
 
-#ifdef : si la constante est définie (cas d'une constant préprocesseur définie sans valeur)
+#ifdef : si la constante est définie (cas d'une constante préprocesseur définie sans valeur)
 #ifndef : si la constante n'est pas définie
     permet aussi d'éviter les inclusions infinies
 
@@ -43,7 +41,7 @@ conditionnelles.
 
 //création d'une macro simple, sans paramètres
 #define SALUT() printf("Salut !\n"); \
-                printf("Je suis Ardy\n");\
+                printf("Je suis MOI\n");\
                 printf("Etudiant.\n");
 
 //macro avec paramètre
@@ -66,11 +64,9 @@ conditionnelles.
 #ifdef MAC
     /* Code source pour Mac */
 #endif
-//en changeant le nom de la constante pré, on voit qu'un bloc s'active aux dépens des autres : c'est
-//tout là l'intérêt des constantes pré non définies.
 
 
-//modèle de tous les fichiers .h à présent
+//modèle de tous les fichiers .h (par sécurité)
 #ifndef DEF_NOM_DU_FICHIER // Si la constante n'a pas été définie le fichier n'a jamais été inclus
 #define DEF_NOM_DU_FICHIER /* On définit la constante pour que la prochaine fois le fichier ne soit
 plus inclus */
@@ -80,17 +76,16 @@ plus inclus */
 #endif
 
 
-
-
 int main (){
-char chaine1[TAILLE_MAX_TABLEAU], chaine2[TAILLE_MAX_TABLEAU]; //valent 1000
+char chaine1[TAILLE_MAX_TABLEAU], chaine2[TAILLE_MAX_TABLEAU]; //taille 1000
 int largeur = LARGEUR_FENETRE;
 
 printf("%d\n", largeur);
 printf("Il est %s lors de la compilation\n\n", __TIME__);
 
-SALUT(); //appel de la macro, peut ou ne pas avpoir de point-virgule
-MAJEUR(19, "Ardy"); //macro avec paramètre
+SALUT(); //appel de la macro, peut ou ne pas avoir de point-virgule
+
+MAJEUR(19, "Inconnu"); //macro avec paramètre
 
 return 0;
 }

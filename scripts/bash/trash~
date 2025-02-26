@@ -8,6 +8,7 @@ fi
 
 if [ "$1" = "-c" ]; then
 	shift
+	mkdir ~/Poubelle
 	du -h ~/Poubelle
 	exit 0
 fi
@@ -16,7 +17,7 @@ if [ "$*" = "-e" ]; then
 	shift
 	rm ~/Poubelle/*
 	echo "Le répertoire Trash a été vidé"
-	exit
+	exit 0
 fi
 
 if [ "$1" = "-h" -o "$1" = "--help" ]; then
@@ -24,16 +25,13 @@ if [ "$1" = "-h" -o "$1" = "--help" ]; then
 	echo -e "Usage de la commande trash : $0 fichier(s)\tou\t$0 OPTION"
 	echo -e "\nOptions :\n-h, --help : afficher cette aide.\n-c : afficher la taille du répertoire Trash.\n-e : vider le répertoire Trash."
 	echo -e "Remarque : Utilisez les options sans préciser de fichiers."
-	echo -e "\nRemerciements à Ardy OCKANDJI pour cette aide."
 	exit 0
 fi
 
-#echo $# pour voir diff entre $* et $#
 for i in $*
 do
 	if [ "$i" = "-c" ]; then
 		shift
-#		i=$i+1
 	elif [ "$i" = "-e" ]; then
 		shift
 	fi

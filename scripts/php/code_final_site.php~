@@ -18,12 +18,12 @@
 <main>
 <section>
 		Ce site répertorie les informations des étudiants du département 
-		Réseaux & Télécoms et leur lieu de résidence principale, et secondaire 
+		Réseaux & Télécoms et leur lieu de résidence principale et secondaire, 
 		s'il y en a.
 	<div class="container1">
 		<?php
 		// Connexion à la base de données
-		$connexion_bdd = mysqli_connect("mysql_serv", "username", "Cathy2005***Line", "aockandj");
+		$connexion_bdd = mysqli_connect("mysql_serv", "username", "password", "db_name");
 		// Vérification de la connexion
 		if (!$connexion_bdd) {
     	die("Connection failed: " . mysqli_connect_error());

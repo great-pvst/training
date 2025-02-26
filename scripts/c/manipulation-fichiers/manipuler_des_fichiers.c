@@ -5,7 +5,7 @@
 /*on peut lire et écrire dans des fichiers en langage C.
 
 fopen = ouvrir un fichier (lecture ou/et écriture)
-    cette fonction renvoie une pointeur sur FILE qu'il faut récupérer afin de lire et écrire dans le fichier.
+    cette fonction renvoie un pointeur sur FILE qu'il faut récupérer afin de lire et écrire dans le fichier.
 fclose = fermer un fichier
 feof = tester la fin d'un fichier
 
@@ -21,7 +21,7 @@ lire dans un fichier
     fgets = lire une chaîne/ligne (renvoie NULL en fin de fichier)
     fscanf = lire une chaîne formatée
      même usage que scanf mais en précisant en premier le pointeur vers le fichier
-     fprintf(pointeur_sur_fichier, texte à lire, variable);
+     fscanf(pointeur_sur_fichier, texte à lire, variable);
 
 se déplacer dans un fichier
     ftell = indique à quelle position vous êtes actuellement dans le fichier (position du curseur)
@@ -133,17 +133,19 @@ int main (int argc, char *argv[])
     if (fichier != NULL)
     {
     // On peut écrire dans le fichier
-        //fputc('A', fichier);
-        //fputs("Salut chef !\nAlors comment se déroule ton apprentissage ?", fichier);
-        //fprintf(fichier,"J'ai %d ans.", age);
+/* 
+        fputc('A', fichier);
+        fputs("Salut chef !\nAlors comment se déroule ton apprentissage ?", fichier);
+        fprintf(fichier,"J'ai %d ans.", age);
+*/
 
     // On peut lire dans le fichier
-    /*
+/*
         do {
             caractere_lu = fgetc(fichier);
             printf("%c", caractere_lu);
         } while (caractere_lu != EOF);
-    */
+*/
     fgets(chaine, TAILLE_MAX, fichier);
     printf("%s", chaine);
 
@@ -158,7 +160,7 @@ int main (int argc, char *argv[])
 
     //rename("text.txt", "test.txt");
 
-    //remove("../../../190820089-portrait-d-une-équipe-commerciale-diversifiée-au-bureau-debout-en-cercle-et-discutant-du-projet.jpg");
+    //remove("test.txt");
 
 
     return 0;

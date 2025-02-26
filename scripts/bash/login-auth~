@@ -7,7 +7,7 @@ password=
 read -p "Login : " login
 read -s -p "Password : " password; echo -e "\n"
 #sans saisie user
-if [ -z "$1" ] && [ -z "$login" ] ; then
+if [ -z "$1" ] && [ -z "$login" ]; then
 	echo "Usage : "$0" <arg> (-h pour l'aide)"
 	exit 1
 fi

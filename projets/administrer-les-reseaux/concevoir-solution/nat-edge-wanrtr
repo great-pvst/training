@@ -1,0 +1,16 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2024.12.17 13:05:26 =~=~=~=~=~=~=~=~=~=~=~=
+
+EDGE1#sh ip nat translations 
+Pro Inside global      Inside local       Outside local      Outside global
+tcp 91.1.222.97:80     217.1.160.1:80     ---                ---
+tcp 91.1.222.97:443    217.1.160.1:443    ---                ---
+
+EDGE1#sh ip    run | section nat
+ip nat inside source list 1 interface GigabitEthernet0/0.14 overload
+ip nat inside source static tcp 217.1.160.1 80 91.1.222.97 80 extendable
+ip nat inside source static tcp 217.1.160.1 443 91.1.222.97 443 extendable
+
+EDGE1#sh run | section access-list
+access-list 1 permit 10.1.0.0 0.0.255.255
+access-list 1 permit 217.1.160.0 0.0.0.248
+access-list 1 deny   any

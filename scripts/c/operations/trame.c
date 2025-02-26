@@ -16,14 +16,14 @@ scanf("%s", temp);
 strcpy(trame,temp);
 
 //calcul du checksum
-for (int i = 0; i < strlen(trame); i++)
+for (unsigned long i = 0; i < strlen(trame); i++)
 {
 	checksum = (checksum + trame[i]) % 65536;
 }
 
 //affichage de la trame
 printf("Trame : 0x%02X 0x%02X 0x%02X ", 0x02, strlen(trame) >> 8, strlen(trame) & 0xFF);
-for (int i = 0; i < strlen(trame); i++)
+for (unsigned long i = 0; i < strlen(trame); i++)
 {
 	printf("0x%2X ", trame[i]);	
 }

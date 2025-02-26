@@ -10,8 +10,7 @@ if (nombre <= 0):
 else :
 	for i in range (1, nombre+1) :
 		if (i*i == nombre):
-			print("Le carré de",nombre,"est",i)
+			print(nombre,"est le carré de",i)
 			break
 		elif (i == nombre):
 			print(i,"n'est pas un carré !")
-    

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*
+
 //programme qui renvoie 1 si un nombre est impair, 0 sinon.
 int parite(int nombre);
 
@@ -21,26 +21,4 @@ if (nombre % 2 == 0)
 else
     return 0;
 
-}
-*/
-int estImpair(int nb);
-
-int main()
-{
-    for(int i=0; i<9 ; i++) {
-        if(estImpair(i))
-            printf("%d est impair\n", i);
-        else
-            printf("%d est pair\n", i);
-    }
-
-    return 0;
-}
-
-// Définition de la fonction (code)
-int estImpair(int nb) {
-    if(nb % 2 == 0)
-        return 0;
-    else
-        return 1;
 }

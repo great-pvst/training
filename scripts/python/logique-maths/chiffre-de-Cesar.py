@@ -53,7 +53,7 @@ def InvitationDechiffrementNombre():
     cle = int(input("Entrez la clé : "))
     print ("Déchiffrement en cours...\nNombre déchiffré : ", Dechiffrement(nombre, cle))
 
-################################################### main ################################################### 
+################################## main ################################## 
 demandeAction = input("Quelle action souhaitez-vous faire ? C[hiffrer] ou D[échiffrer] : ")
 
 if (demandeAction.upper() == "C"):

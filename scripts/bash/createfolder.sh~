@@ -9,7 +9,7 @@ if [ $# -eq 0 ]; then
 	
 	until ((1 > $nbfolders))
 	do
-		read -p "Nom du dossier : " name
+		read -p "Nom du dossier ? " ""{name}
 		mkdir "$name"
 		nbfolders=$(($nbfolders - 1))
 	done

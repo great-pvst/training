@@ -10,9 +10,6 @@ fi
 if [ ! -e "$1" ] && [ -z "$2" ]; then
 	echo "Erreur, fichier inexistant"
 	exit 1
-else if [ ! -e "$1" ] && [ "$2" = "on" ]; then
-		echo "Not permitted !"
-		exit 1
 fi
 
 if [ -z "$2" ]; then

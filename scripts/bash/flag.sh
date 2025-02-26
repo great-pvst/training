@@ -29,7 +29,7 @@ if [ "$2" = "off" ]; then
 fi
 
 if [ "$2" = "flop" ]; then
-	if [ ! -e "$1" ]; then #ce qui manquait
+	if [ ! -e "$1" ]; then 
 		echo "Erreur, fichier inexistant"
 		exit 1
 	elif [ `cat $1` -eq 1 ]; then

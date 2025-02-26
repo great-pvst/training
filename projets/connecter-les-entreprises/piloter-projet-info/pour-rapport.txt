@@ -1,22 +1,20 @@
 C'est quoi pfSense ?
-pfSense est une distribution de pare-feu et de routeur basée sur FreeBSD, conçue pour offrir des fonctionnalités avancées de sécurité et de gestion de réseau. Elle est open source. pfSense permet la gestion des pare-feux, la segmentation de réseau, la configuration de VPN, le filtrage de contenu, etc. Le tout est administrable via une interface web conviviale, ce qui facilite la gestion.
+	pfSense est une distribution de pare-feu et de routeur basée sur FreeBSD, conçue pour offrir des fonctionnalités avancées de sécurité et de gestion de réseau. Elle est open source. pfSense permet la gestion des pare-feux, la segmentation de réseau, la configuration de VPN, le filtrage de contenu, etc. Le tout est administrable via une interface web conviviale, ce qui facilite la gestion.
 
 Utilité générale de pfSense
-pfSense est utilisé comme pare-feu et routeur pour assurer la sécurité et la gestion du trafic réseau. Sa flexibilité permet d’ajouter des services tels que :
-- Routage et pare-feu avancés : Utilisation de règles de filtrage précises pour contrôler les connexions entrantes et sortantes.
-- VPN : Configuration de VPN (OpenVPN, IPsec) pour permettre un accès sécurisé à distance.
-- IDS/IPS (Système de détection/prévention d’intrusion) : Détection et prévention des menaces réseau en temps réel.
-- Gestion des VLANs en créant des interfaces virtuelles attachées à une interface "physique". En fait c'est une interface qui a accès au matériel physique de l'hôte. Ce qui permet de faire du ROAS.
+	pfSense est utilisé comme pare-feu et routeur pour assurer la sécurité et la gestion du trafic réseau. Sa flexibilité permet d’ajouter des services tels que :
+	
+	- Routage et pare-feu avancés : Utilisation de règles de filtrage précises pour contrôler les connexions entrantes et sortantes ;
+	- VPN : Configuration de VPN (OpenVPN, IPsec) pour permettre un accès sécurisé à distance ;
+	- IDS/IPS (Système de détection/prévention d’intrusion) : Détection et prévention des menaces réseau en temps réel ;
+	- Gestion des VLANs en créant des interfaces virtuelles attachées à une interface "physique". En fait c'est une interface qui a accès au matériel physique de l'hôte. Ce qui permet de faire du ROAS.
 
 Avantages de pfSense dans un réseau d’hôpital
-Dans un environnement hospitalier, la sécurité, la fiabilité et la disponibilité du réseau sont cruciales, car les données des patients sont sensibles et les systèmes doivent fonctionner sans interruption. pfSense peut répondre à ces besoins grâce à ces fonctionnalités :
-
-- Sécurité renforcée des données de santé : En raison des règles strictes du secteur de la santé (par exemple, RGPD en Europe) pfSense permet de segmenter le réseau en zones sécurisées. Cela limite l’accès aux données sensibles et permet un suivi et un contrôle précis des accès.
-
-- Accès sécurisé aux dossiers médicaux : Avec la fonctionnalité VPN, pfSense garantit que seuls les professionnels autorisés peuvent accéder aux dossiers médicaux, même à distance. Cela permet aux médecins d’accéder aux données patients en toute sécurité depuis différents sites ou lorsqu’ils travaillent à domicile. Ce qui est très intéressant dans le cadre de notre projet.
-
-- Fiabilité et haute disponibilité : Grâce aux fonctionnalités d’équilibrage de charge et de basculement automatique, pfSense assure la continuité du réseau en cas de panne. Cela garantit que les applications critiques, comme les systèmes de gestion des patients, les équipements médicaux connectés et les services d’urgence, restent toujours en ligne.
-
-- Surveillance et détection des menaces : pfSense peut intégrer des outils IDS/IPS pour surveiller les attaques potentielles et y répondre en temps réel. Dans un hôpital, où le risque de cyberattaques est élevé, cette fonctionnalité protège les systèmes critiques des infections par des logiciels malveillants ou des attaques DDoS.
+	Dans un environnement hospitalier, la sécurité, la fiabilité et la disponibilité du réseau sont cruciales, car les données des patients sont sensibles et les systèmes doivent fonctionner sans interruption. pfSense peut répondre à ces besoins grâce à ces fonctionnalités :
+	
+	- Sécurité renforcée des données de santé : En raison des règles strictes du secteur de la santé (par exemple, RGPD en Europe) pfSense permet de segmenter le réseau en zones sécurisées. Cela limite l’accès aux données sensibles et permet un suivi et un contrôle précis des accès ;
+	- Accès sécurisé aux dossiers médicaux : Avec la fonctionnalité VPN, pfSense garantit que seuls les professionnels autorisés peuvent accéder aux dossiers médicaux, même à distance. Cela permet aux médecins d’accéder aux données patients en toute sécurité depuis différents sites ou lorsqu’ils travaillent à domicile. Ce qui est très intéressant dans le cadre de notre projet ;
+	- Fiabilité et haute disponibilité : Grâce aux fonctionnalités d’équilibrage de charge et de basculement automatique, pfSense assure la continuité du réseau en cas de panne. Cela garantit que les applications critiques, comme les systèmes de gestion des patients, les équipements médicaux connectés et les services d’urgence, restent toujours en ligne ;
+	- Surveillance et détection des menaces : pfSense peut intégrer des outils IDS/IPS pour surveiller les attaques potentielles et y répondre en temps réel. Dans un hôpital, où le risque de cyberattaques est élevé, cette fonctionnalité protège les systèmes critiques des infections par des logiciels malveillants ou des attaques DDoS ;
 
 En résumé, pfSense apporte au réseau hospitalier une sécurité accrue, un accès contrôlé, et une surveillance continue. Cela en fait une solution idéale pour un environnement aussi exigeant et sensible qu’un hôpital.

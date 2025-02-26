@@ -1,12 +1,11 @@
 <?php 
-require_once "mdp.php";
 	$database = "db_name";
 	$username = "username";
-	$password = "Line2005*Cathy";
+	$password = "password";
 	$servername ="mysql_serv";
 	$row = 1;
 	
-	if (($handle = fopen("donnees/personnel2.csv", "r")) !== FALSE) {
+	if (($handle = fopen("donnees.csv", "r")) !== FALSE) {
 		// Create connection
     	$connection = mysqli_connect($servername, $username, $password, $database);
     	// Check connection

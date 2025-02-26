@@ -7,7 +7,7 @@
 
 <?php
 // Connexion à la base de données
-$connexion_bdd = mysqli_connect("mysql_serv", "username", "password", "aockandj");
+$connexion_bdd = mysqli_connect("mysql_serv", "username", "password", "db_name");
 // Vérification de la connexion
 if (!$connexion_bdd) {
     die("Connection failed: " . mysqli_connect_error());

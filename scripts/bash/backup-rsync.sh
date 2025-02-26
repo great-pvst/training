@@ -5,8 +5,6 @@ if [ -n "$1" ]; then
 	echo "Usage : $0"
 	exit 1
 fi
-#CHEMIN=pwd;
-file=""; new_file=""; stock=""; new_stock=""; type_stock=""; bool=""; temp=""
 
 # affichage du repertoire / selection du rep a transferer
 echo -n "Vous êtes dans : "; pwd; echo "Voici les fichiers présents"; ls --color=auto
@@ -23,7 +21,8 @@ if [ "$bool" != "n" ] && [ "$bool" != "y" ]; then
 	exit 1
 fi
 
-if [ "$bool" = "n" ]; then # a transforme en une fonction
+# a transforme en une fonction
+if [ "$bool" = "n" ]; then
 	read -p "Entrez le nom du fichier : " new_file; echo -e "Nous recherchons le répertoire..."
 # reduit la recherche a son home : $HOME
 	file=`find "$HOME/Documents/" -path "*/$new_file"`
@@ -34,19 +33,17 @@ if [ "$bool" = "n" ]; then # a transforme en une fonction
 	fi
 	#
 	# trouve
-	echo -e "\nFichier à transférer : $file"; # cd ${file} (peut generer une erreur si fichier); ls --color=auto
+	echo -e "\nFichier à transférer : $file";
 	#
 fi
 
 if [ "$bool" = "y" ]; then
-	read -p "Entrez le fichier à transférer : " file
+	read -p "Entrez le fichier à transférer : " new_file
 
 #chemin absolu
-file="$HOME/$file"
+file="$HOME/$new_file"
 fi
 
-### temp=`find . -name "$file"`
-### ensuite je verifie le contenu de temp
 ### si égal à file, ok. Sinon autre operation (en fonction de l'action)
 for i in `ls`
 do
