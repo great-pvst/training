@@ -1,4 +1,4 @@
-# FR (EN version below)
+# FR
 Ce dépôt présente quelques projets que j'ai réalisés, dans un cadre académique ou personnel.
 J'ai commencé à travailler dessus depuis quelques jours  !
 

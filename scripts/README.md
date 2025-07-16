@@ -1,4 +1,4 @@
-# FR (EN version below)
+# FR
 Des exercices pour s'entraîner et garder le rythme d'un minimum de programmation...
 Ces entraînements se présentent souvent sous une approche mathématique ou d'automatisation des tâches répétitives sur marchine (bien sûr pas pour tout le monde). Certains peuvent mal fonctionner.
 

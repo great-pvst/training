@@ -1,4 +1,4 @@
-# FR (EN version below)
+# FR
 Un extrait de ma capacité à mener des projets et à travailler en groupe.
 
 

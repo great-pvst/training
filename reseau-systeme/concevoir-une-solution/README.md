@@ -1,4 +1,4 @@
-# FR (EN version below)
+# FR
 Les fichiers ci-dessous sont relatifs à l'exercice d'un sujet de Worldskills (compétition des métiers ) régional notamment "worldskills.pem".
 J'ai modifié le contenu de la plupart afin que les fichiers soient personnalisables au maximum.
 
