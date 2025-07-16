@@ -1,4 +1,4 @@
-# FR (EN version below)
+# FR
 Retrouvez ici quelques activités d'administrateur réseaux et systèmes : des configurations minimales de switch ou de routeurs, de l'adressage, des infrastructures et bien d'autres. J'ai essayé de rendre ces fichiers le plus utilisable et anonyme possible.
 Toute information pouvant coincider avec une identité quelconque relève de l'improbabbilité. Aucune personne morale ou physique n'a été l'objet de ces travaux.
 
