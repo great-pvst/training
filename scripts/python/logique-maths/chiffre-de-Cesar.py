@@ -1,6 +1,7 @@
+### a monoalphabetic cipher 
+
 #coding:utf-8
 
-#import math
 import base64
 
 #fonctions

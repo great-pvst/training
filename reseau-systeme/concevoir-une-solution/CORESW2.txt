@@ -1,0 +1,120 @@
+en
+delete vlan.dat
+
+
+
+wr erase
+
+
+reload
+
+
+
+###################### BASIC ######################
+conf t
+hostname yourSWname
+line con 0
+logging synchronous
+exit
+
+service password-encryption
+enable secret yourPassword
+banner motd # WELCOME ON yourSWname #
+banner login # /!\ Restricted access. Only for authorized people /!\ #
+no ip domain-lookup
+ip domain-name yourDomainName
+username yourUser privilege 15 secret yourUserPassword
+crypto key generate rsa general-keys modulus 2048
+
+ip ssh version 2
+ip ssh time-out 20
+ip ssh authentication-retries 3
+end
+
+conf t
+line vty 0 15
+transport input ssh
+login local
+
+###################### FIN BASIC ######################
+
+###################### VLAN ######################
+end
+conf t
+vlan 10
+name SERVERS
+vlan 20
+name CLIENTS
+vlan 30
+name DMZ
+vlan 40
+name GUEST
+vlan 50
+name IoT
+vlan 99
+name MGMT-WLAN
+vlan 200
+name CORESW-TWO-EDGE-TWO
+vlan 300
+name IBGP-PEER
+vlan 666
+name BLACKHOLE
+end
+
+###################### FIN VLAN ######################
+
+######################## STP ########################
+en
+conf t
+spann mode rap
+######################## FIN STP ########################
+
+######################## VTP ########################
+end
+conf t
+vtp domain yourVTPdomainName
+vtp version 2
+vtp mode server
+vtp password yourVTPpassword
+vtp pruning
+######################## FIN VTP ########################
+
+######################## NATIVE TRUNK CHANGE ########################
+conf t
+int gi1/0/2
+switc mode trunk
+switc trun allo	vl 10,20,30,40,50,99
+switc tr nati vlan 666
+switc noneg
+######################## FIN NATIVE TRUNK CHANGE ########################
+
+############################## LACP ##############################
+conf t
+int range gi1/0/3-4
+channel-group 1 mode active
+exit
+interface port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30,40,50,99,300
+end
+show interfaces port-channel 1
+############################## FIN LAG ##############################
+
+############################## SVI ##############################
+conf t
+interface vlan 99
+ip add yourIPaddress yourNETmask
+no shut
+end
+############################## FIN SVI ##############################
+
+############################## PORT-SECURITY ##############################
+end
+conf t
+int fa 0/5
+span bpd en
+span port 
+switc port-s maxi 1
+switc port-s viol shu
+switc port-s mac-ad stic
+############################## FIN PORT-SECURITY ##############################

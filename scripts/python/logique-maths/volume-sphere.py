@@ -1,6 +1,6 @@
 #coding:utf-8
 
-# volume du sphere
+# volume of the sphere
 import math
 
 def calculCube(nombre):

@@ -1,0 +1,52 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir = /root/ca
+certs = $dir/certs
+crl_dir = $dir/crl
+database = $dir/index.txt
+new_certs_dir = $dir/newcerts
+certificate = $dir/certs/ca.crt
+serial = $dir/serial
+private_key = $dir/private/ca.key
+default_md = sha256
+policy = policy_strict
+default_days = 375
+
+[ policy_strict ]
+countryName = match
+stateOrProvinceName = match
+localityName = match
+organizationName = match
+organizationalUnitName = match
+commonName = supplied
+emailAddress = match
+
+[ req ]
+default_bits = 2048
+default_md = sha256
+default_days = 3650
+distinguished_name = req_distinguished_name
+x509_extensions = v3_ca
+
+[ req_distinguished_name ]
+countryName = Country Name (2 letter code)
+countryName_default = FR
+stateOrProvinceName = State or Province Name (full name)
+stateOrProvinceName_default = Auvergne Rhone-Alpes
+localityName = Locality Name (eg, city)
+localityName_default = Lyon
+organizationName = Organization Name (eg, company)
+organizationName_default = Worldskills France
+organizationalUnitName = Organizational Unit Name (eg, Department area)
+organizationalUnitName_default = Worldskills France Lyon 2024
+commonName = Common Name (e.g server FQDN or YOUR name)
+commonName_max = 64
+emailAddress = Enter your email Address
+
+[ v3_ca ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #a little game when boring
-
 if [ -z "$1" ] && [ -n "$2" ]; then
 	echo "Usage : $0 <nom_du_drapeau>"		
 	exit 1

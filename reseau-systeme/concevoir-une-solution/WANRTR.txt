@@ -1,0 +1,143 @@
+##################################### BASIC #####################################
+conf t
+hostname yourRouterName
+no ip domain-lookup
+ip domain-name yourDomainName
+enable secret yourPassword
+username yourUser privilege 15 secret yourUserPassword
+service password-encryption
+crypto key generate rsa modulus 2048
+
+ip ssh version 2
+ip ssh time-out 20
+ip ssh authentication-retries 3
+end
+
+wr
+
+
+conf t
+banner login # /!\ Restricted access. Only for authorized people /!\ #
+banner motd #
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X                                                      X
+X                                                      X
+X                  WELCOME ON XXXXXXX                  X
+X                                                      X
+X                                                      X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#
+
+line con 0
+password yourConsolePassword
+login local
+logging synch
+abso 20
+exit
+
+line vty 0 15
+transport input ssh
+abso 20
+session-ti 5
+exec-ti 5
+end
+
+wr
+##################################### FIN BASIC #####################################
+
+
+##################################### VRF #####################################
+conf t
+ip vrf VRFMAN
+rd 1:1
+route-target export 1:1
+route-target import 1:1
+exit
+
+ip vrf VRFINET
+rd 1:2
+route-target export 1:2
+route-target import 1:2
+exit
+##################################### FIN VRF #####################################
+
+
+##################################### INTERFACE #####################################
+conf t
+int g0/0
+EDGE1
+no sh
+int g0/0.13
+ip vrf forwarding VRFMAN
+encap do 13
+ip add yourIPaddress yourNETmask
+descr COM-VRF-MAN
+no sh
+int g0/0.14
+ip vrf forwarding VRFINET
+encap do 14
+ip add yourIPaddress yourNETmask
+descr COM-VRF-INET
+no sh
+end
+
+conf t
+int g0/1
+desc EDGE2
+no sh
+int g0/1.15
+ip vrf forwarding VRFMAN
+encap do 15
+ip add yourIPaddress yourNETmask
+descr COM-VRF-MAN
+no sh
+int g0/1.16
+ip vrf forwarding VRFINET
+encap do 16 
+ip add yourIPaddress yourNETmask
+descr COM-VRF-INET
+no sh
+end
+
+conf t
+int fa0/0
+desc REMFW-MAN
+ip add yourIPaddress yourNETmask
+no sh
+end
+
+conf t
+int fa1/0
+desc INET
+ip add yourIPaddress yourNETmask
+no sh
+end
+
+wr
+##################################### FIN INTERFACE #####################################
+
+
+##################################### OSPF #####################################
+conf t
+router ospf IDprocessus_like_number vrf VRFMAN
+router-id yourRouterIDforOSPF_like_IP
+network yourNETaddressDirectlyConnected yourWildcard area yourAreaAddressOrNumber
+redis conne subn
+end
+
+wr
+##################################### FIN OSPF #####################################
+
+
+##################################### BGP #####################################
+conf t
+router bgp yourAutonomousSystemNumber
+address-family ipv4 vrf VRFINET
+net yourNETaddressDirectlyConnected mask yourNETmask
+neig yourNeighborIPaddresse remote-as itsAutonomousSystemNumber
+neig yourNeighborIPaddresse activate
+redis connect
+end
+
+wr
+##################################### FIN BGP #####################################

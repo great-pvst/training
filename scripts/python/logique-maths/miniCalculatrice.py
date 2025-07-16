@@ -1,3 +1,5 @@
+### simulate a mini calculator
+
 #coding:utf-8
 import os
 

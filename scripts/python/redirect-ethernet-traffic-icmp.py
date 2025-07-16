@@ -1,11 +1,6 @@
 #coding:utf-8
 from scapy.all import *
 
-#frame=Ether()
-#frame.src="34:17:eb:9d:18:a4"
-#frame.dst="34:17:eb:9d:18:95"
-#frame.type=0x0800
-
 for i in range(2,255):
 	frame = Ether(dst = "ff:ff:ff:ff:ff:ff")
 	ip = IP()

@@ -1,15 +1,15 @@
 #!/bin/bash
 
-#aucun arg accepte
+#no arg accept
 if [ -n "$1" ]; then
 	echo "Usage : $0"
 	exit 1
 fi
 
-# affichage du repertoire / selection du rep a transferer
+# print directory content / select the file
 echo -n "Vous êtes dans : "; pwd; echo "Voici les fichiers présents"; ls --color=auto
 
-# presence du fichier
+# file ?
 echo -e -n "\nLe fichier souhaité est-il présent ? [y/n] "; read bool;
 if [ -z "$bool" ]; then
 	echo -e "\nVous n'avez rien tapé, le programme ne peut continuer"
@@ -21,18 +21,18 @@ if [ "$bool" != "n" ] && [ "$bool" != "y" ]; then
 	exit 1
 fi
 
-# a transforme en une fonction
+# 
 if [ "$bool" = "n" ]; then
 	read -p "Entrez le nom du fichier : " new_file; echo -e "Nous recherchons le répertoire..."
-# reduit la recherche a son home : $HOME
-	file=`find "$HOME/Documents/" -path "*/$new_file"`
-	# !trouve
+# limited search 
+	file=`find "$HOME" -path "*/$new_file"`
+	# !find
 	if [ -z "$file" ]; then
 		echo -e "\nFichier à transférer introuvable ! (Veuillez à respecter les maj,min,symboles,etc.)\nFin du programme"
 		exit 1
 	fi
 	#
-	# trouve
+	# find
 	echo -e "\nFichier à transférer : $file";
 	#
 fi
@@ -40,29 +40,29 @@ fi
 if [ "$bool" = "y" ]; then
 	read -p "Entrez le fichier à transférer : " new_file
 
-#chemin absolu
+#absolute path
 file="$HOME/$new_file"
 fi
 
-### si égal à file, ok. Sinon autre operation (en fonction de l'action)
+### check the name
 for i in `ls`
 do
 	if [ "$file" = "$i" ]; then
-		echo -e "Fichier trouvé !\n"; bool="n" #pour passer a la suite et verifier la mauvaise entree.
+		echo -e "Fichier trouvé !\n"; bool="n" #to skip the bad entry.
 	fi
 	temp="$i"
 done
-#mauvaise entree
+#bad entry
 if [ "$file" != "$temp" ] && [ "$bool" = "y" ]; then
 	echo -e "Cette destination n'existe pas, le programme est arrêté."; exit 1
 fi
 
-# choix de la destination
+# select the destination
 bool=""
 
 echo -e "\nVous allez désigner la destination du fichier"
 
-#type de stockage
+# local destination ?
 read -p "La destination est-elle interne ou externe ? [i/e] " type_stock
 if [ -z "$type_stock" ]; then
 	echo -e "\nDestination vide, le programme ne peut continuer"
@@ -75,17 +75,17 @@ if [ "$type_stock" != "i" ] && [ "$type_stock" != "e" ]; then
 fi
 
 if [ "$type_stock" = "e" ]; then
-# affichage des disques
+# stockage list
 	echo -e "Rassurez-vous d'avoir connecté le stockage externe !\nVoici les destinations possibles : "; ls --color=auto /media/${USER}
-# choix du disque
+# choose disk
 	read -p "Entrez le nom de la destination : " stock
-# on checke si vide
+# !empty
 	if [ -z "$stock" ]; then
 		echo -e "Destination vide, arrêt du programme."; exit 1
 	fi
 #
-# on checke l'existence du nom tape
-	for dest in `ls /media/${USER}` #reflechir a l'implementation de find... peut faire le taf
+# check the existence of the name provided
+	for dest in `ls /media/${USER}`
 	do
 		if [ "$dest" = "$stock" ]; then
 			echo -e "\nDestination correcte, envoi en cours..."
@@ -95,14 +95,14 @@ if [ "$type_stock" = "e" ]; then
 		fi
 		temp=$dest
 	done
-	#mauvaise entree
+	# bad entry
 	if [ "$stock" != "$temp" ]; then
 		echo -e "Cette destination n'existe pas, le programme s'arrête."; exit 1
 	fi
 #
 fi
 
-# la dest est donc interne
+# local destination
 echo -e "\nVoici votre répertoire : "; ls --color=auto $HOME
 
 read -p "La destination est-elle présente ? [y/n] " bool
@@ -118,10 +118,10 @@ fi
 
 
 if [ "$bool" = "n" ]; then
-# on navigue dans l'arborescence
+# navigate on the tree
 	while ( "$bool" = "n" )
 	do
-# pas besoin de ceci
+#
 		read -p "Possible destination : " new_stock;
 		for dest in `ls`
 		do
@@ -147,12 +147,12 @@ if [ "$bool" = "y" ]; then
 			echo -e "\nFin de l'opération. Arrêt du programme !"
 			exit 1
 		fi
-# cette portion n'est consideree que si non correspondance il y a.
+# only if no correspondance.
 	temp=$dest
 	done
 fi
 
-# mauvaise frappe
+# bad type
 if [ "$temp" != "$stock" ]; then
 	echo "Destination incohérente ! Arrêt du programme."; exit 1
 fi

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # another way to create folders
-
 if [ $# -eq 0 ]; then
 	nbfolders=0
 	echo "Combien de dossiers souhaitez-vous créer ?"

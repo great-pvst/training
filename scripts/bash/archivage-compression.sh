@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #erase content of directory backup
-
 if [ -d "/path/which/will/contain/" ]; then
 	rm -rf /path/which/will/contain/*
 else

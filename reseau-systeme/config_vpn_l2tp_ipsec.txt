@@ -1,0 +1,110 @@
+Sur RPI: Passer en root ( exit pour revenir en normal � la fin de la configuration du VPN ):  sudo �i 
+
+Config IPSEC:
+apt-get install openswan
+accepter par d�faut => Il cr�e les certificats
+
+cp /etc/ipsec.conf  /etc/ipsec.conf.orig
+rm /etc/ipsec.conf
+nano /etc/ipsec.conf
+           mettre dans le fichier vierge le code de http://www.sempervideo.de/rpi-vpn.txt rappel� 
+version 2.0
+config setup
+    nat_traversal=yes
+    virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12
+    oe=off
+    protostack=netkey
+
+conn L2TP-PSK-NAT
+    rightsubnet=vhost:%priv
+    also=L2TP-PSK-noNAT
+
+conn L2TP-PSK-noNAT
+    authby=secret
+    pfs=no
+    auto=add
+    keyingtries=3
+    rekey=no
+    ikelifetime=8h
+    keylife=1h
+    type=transport
+    left=10.0.0.1xx                    remplacer xx par la valeur de votre carte = IP serveur VPN = RPI
+    leftprotoport=17/1701
+    right=%any
+    rightprotoport=17/%any
+
+Config L2TP:
+apt-get install xl2tpd
+nano /etc/ipsec.secrets
+
+Taper une ligne en rempla�ant xx par votre valeur et mettre votre mot de passe IPsec au lieu de abcdef
+
+   10.0.01xx      %any:   PSK "abcdef"          Tab entre serveur et %any:      
+                                                Tab entre %any: et PSK
+Entre guillemets = cl� PSK VPN 
+enregistrer et quitter
+
+cp /etc/xl2tpd/xl2tpd.conf  /etc/xl2tpd/xl2tpd.conf.orig
+rm /etc/xl2tpd/xl2tpd.conf  
+nano /etc/xl2tpd/xl2tpd.conf  
+mettre le code de http://www.sempervideo.de/rpi-vpn.txt rappel� ensuite
+[global]
+ipsec saref = yes
+
+[lns default]
+ip range = 10.0.0.200-10.0.0.222
+local ip = 10.0.0.1xx                     remplacer xx par la valeur de votre carte = IP serveur VPN = RPI
+refuse chap = yes
+refuse pap = yes
+require authentication = yes
+ppp debug = yes
+pppoptfile = /etc/ppp/options.xl2tpd
+length bit = yes
+enregistrer et quitter
+
+Config PPP:
+apt-get install ppp
+
+nano /etc/ppp/options.xl2tpd
+mettre le code de http://www.sempervideo.de/rpi-vpn.txt rappel� ensuite
+require-mschap-v2
+ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+asyncmap 0
+auth
+crtscts
+lock
+hide-password
+modem
+debug
+name l2tpd
+proxyarp
+lcp-echo-interval 30
+lcp-echo-failure 4
+enregistrer et quitter
+
+D�finir un compte VPN qui pourra se connecter ( l'exemple suivant utilise compte, mot de passe = login, 123456 )
+nano /etc/ppp/chap-secrets
+mettre votre login et mot de passe de connexion en s�parant par touche TAB:
+  login      l2tpd         123456          * 
+    ( sous client )           ( sous server )               = mot de passe client         (ip = ip dynamique )
+         (= name de options.xl2tpd   )  ( sous password )
+enregistrer et quitter
+Ajouter le d�marrage du serveur VPN au boot:
+nano /etc/rc.local    ( s�rement � adapter � votre version d'OS )
+
+Juste avant le "exit 0" de la fin de fichier, coller les lignes de http://www.sempervideo.de/rpi-vpn.txt suivantes:
+iptables --table nat --append POSTROUTING --jump MASQUERADE
+echo 1 > /proc/sys/net/ipv4/ip_forward
+for each in /proc/sys/net/ipv4/conf/*
+do
+    echo 0 > $each/accept_redirects
+    echo 0 > $each/send_redirects
+done
+/etc/init.d/ipsec restart
+enregistrer et quitter
+Cela fait le lien entre le r�seau VPN et le r�seau fixe.
+
+
+- Rebooter. On a ensuite 	le port UDP 500 actif = IPsec en NAT traversal  ( sudo systemctl status ipsec ) 
+			le port UDP 1701 actif = L2TP   ( sudo systemctl status xl2tp )
